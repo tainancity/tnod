@@ -25,6 +25,9 @@
 
     #}
     {%- block meta -%}
+<!--[if lte ie 8]>
+  <style>.hero { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../../../base/images/tainan-hero-bg.jpg', sizingMethod='scale'); }</style>
+<![endif]-->
       <meta charset="utf-8" />
       {% block meta_generator %}<meta name="generator" content="ckan {{ c.__version__ }}" />{% endblock %}
     {%- endblock -%}

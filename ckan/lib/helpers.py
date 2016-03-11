@@ -1745,6 +1745,14 @@ def get_site_statistics():
            where rd.status = 'active' or rd.id is null''').first()[0]
     stats['related_count'] = result
 
+    stats['resource_count'] = model.Session.execute(
+        '''SELECT COUNT(*) FROM (
+             SELECT c.id
+             FROM resource a, resource_group b, package c
+             WHERE a.resource_group_id = b.id AND b.package_id = c.id
+               AND a.state='active' AND b.state='active' AND c.state='active' AND c.private='f'
+           ) as g ; ''').first()[0]
+
     return stats
 
 def check_config_permission(permission):

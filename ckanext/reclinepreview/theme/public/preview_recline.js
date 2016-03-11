@@ -20,6 +20,23 @@ this.ckan.module('reclinepreview', function (jQuery, _) {
 
     _onReady: function() {
       this.loadPreviewDialog(preload_resource);
+	
+	//#JOE#//
+	var lats = jQuery('.editor-lat-field select option').filter(function (i,d){ 
+		return d.value.indexOf('緯度')>-1;
+	});
+	if(lats.length >0){
+		jQuery('.editor-lat-field select').val(lats[0].value);
+	}
+
+	var lngs = jQuery('.editor-lon-field select option').filter(function (i,d){ 
+		return d.value.indexOf('經度')>-1;
+	});
+	if(lngs.length >0){
+		jQuery('.editor-lon-field select').val(lngs[0].value);
+	}
+	jQuery('.editor-update-map').click();
+
     },
 
     // **Public: Loads a data preview**
@@ -104,21 +121,24 @@ this.ckan.module('reclinepreview', function (jQuery, _) {
       var views = [
         {
           id: 'grid',
-          label: 'Grid',
+          label: '表格',
+		  tips: '提醒您：透過資料表格預覽方式了解資料內容，點擊欄位名稱可進行排序',
           view: new recline.View.SlickGrid({
             model: dataset
           })
         },
         {
           id: 'graph',
-          label: 'Graph',
+          label: '圖表',
+		  tips: '提醒您：「圖表」功能可指定目標資料欄位快速繪製統計圖表',
           view: new recline.View.Graph({
             model: dataset
           })
         },
         {
           id: 'map',
-          label: 'Map',
+          label: '地圖',
+		  tips: '提醒您：「地圖」功能可依據資料集所提供的經緯度坐標資訊進行地圖顯示',
           view: new recline.View.Map({
             model: dataset
           })
@@ -128,7 +148,7 @@ this.ckan.module('reclinepreview', function (jQuery, _) {
       var sidebarViews = [
         {
           id: 'valueFilter',
-          label: 'Filters',
+          label: '篩選',
           view: new recline.View.ValueFilter({
             model: dataset
           })

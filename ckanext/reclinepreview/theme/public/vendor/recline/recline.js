@@ -1977,9 +1977,8 @@ my.Flot = Backbone.View.extend({
     <div class="recline-flot"> \
       <div class="panel graph" style="display: block;"> \
         <div class="js-temp-notice alert alert-block"> \
-          <h3 class="alert-heading">Hey there!</h3> \
-          <p>There\'s no graph here yet because we don\'t know what fields you\'d like to see plotted.</p> \
-          <p>Please tell us by <strong>using the menu on the right</strong> and a graph will automatically appear.</p> \
+          <h3 class="alert-heading">尚無資料對應圖表！</h3> \
+          <p>由於您尚未定義統計圖表計算欄位，建議您透過右側選單進行設定，謝謝您！</p> \
         </div> \
       </div> \
     </div> \
@@ -2300,17 +2299,17 @@ my.FlotControls = Backbone.View.extend({
   <div class="editor"> \
     <form class="form-stacked"> \
       <div class="clearfix"> \
-        <label>Graph Type</label> \
+        <label>圖表類型</label> \
         <div class="input editor-type"> \
           <select> \
-          <option value="lines-and-points">Lines and Points</option> \
-          <option value="lines">Lines</option> \
-          <option value="points">Points</option> \
-          <option value="bars">Bars</option> \
-          <option value="columns">Columns</option> \
+          <option value="lines-and-points">折線圖</option> \
+          <option value="lines">曲線圖</option> \
+          <option value="points">散佈圖</option> \
+          <option value="bars">橫條圖</option> \
+          <option value="columns">直條圖</option> \
           </select> \
         </div> \
-        <label>Group Column (Axis 1)</label> \
+        <label>圖例項目 (軸1)</label> \
         <div class="input editor-group"> \
           <select> \
           <option value="">Please choose ...</option> \
@@ -2323,7 +2322,7 @@ my.FlotControls = Backbone.View.extend({
         </div> \
       </div> \
       <div class="editor-buttons"> \
-        <button class="btn editor-add">Add Series</button> \
+        <button class="btn editor-add">增加數列</button> \
       </div> \
       <div class="editor-buttons editor-submit" comment="hidden temporarily" style="display: none;"> \
         <button class="editor-save">Save</button> \
@@ -2477,9 +2476,8 @@ my.Flotr2 = Backbone.View.extend({
     <div class="recline-graph"> \
       <div class="panel graph" style="display: block;"> \
         <div class="js-temp-notice alert alert-block"> \
-          <h3 class="alert-heading">Hey there!</h3> \
-          <p>There\'s no graph here yet because we don\'t know what fields you\'d like to see plotted.</p> \
-          <p>Please tell us by <strong>using the menu on the right</strong> and a graph will automatically appear.</p> \
+          <h3 class="alert-heading">尚無資料對應圖表！</h3> \
+          <p>由於您尚未定義統計圖表計算欄位，建議您透過右側選單進行設定，謝謝您！</p> \
         </div> \
       </div> \
     </div> \
@@ -2761,17 +2759,17 @@ my.Flotr2Controls = Backbone.View.extend({
   <div class="editor"> \
     <form class="form-stacked"> \
       <div class="clearfix"> \
-        <label>Graph Type</label> \
+        <label>圖表類型</label> \
         <div class="input editor-type"> \
           <select> \
-          <option value="lines-and-points">Lines and Points</option> \
-          <option value="lines">Lines</option> \
-          <option value="points">Points</option> \
-          <option value="bars">Bars</option> \
-          <option value="columns">Columns</option> \
+          <option value="lines-and-points">折線圖</option> \
+          <option value="lines">曲線圖</option> \
+          <option value="points">散佈圖</option> \
+          <option value="bars">橫條圖</option> \
+          <option value="columns">直條圖</option> \
           </select> \
         </div> \
-        <label>Group Column (Axis 1)</label> \
+        <label>圖例項目 (軸1)</label> \
         <div class="input editor-group"> \
           <select> \
           <option value="">Please choose ...</option> \
@@ -2784,7 +2782,7 @@ my.Flotr2Controls = Backbone.View.extend({
         </div> \
       </div> \
       <div class="editor-buttons"> \
-        <button class="btn editor-add">Add Series</button> \
+        <button class="btn editor-add">增加數列</button> \
       </div> \
       <div class="editor-buttons editor-submit" comment="hidden temporarily" style="display: none;"> \
         <button class="editor-save">Save</button> \
@@ -2795,8 +2793,8 @@ my.Flotr2Controls = Backbone.View.extend({
 ',
   templateSeriesEditor: ' \
     <div class="editor-series js-series-{{seriesIndex}}"> \
-      <label>Series <span>{{seriesName}} (Axis 2)</span> \
-        [<a href="#remove" class="action-remove-series">Remove</a>] \
+      <label>繪製欄位 <span>{{seriesName}} (軸 2)</span> \
+        [<a href="#remove" class="action-remove-series">移除</a>] \
       </label> \
       <div class="input"> \
         <select> \
@@ -3667,13 +3665,13 @@ my.MapMenu = Backbone.View.extend({
         <div class="editor-field-type"> \
             <label class="radio"> \
               <input type="radio" id="editor-field-type-latlon" name="editor-field-type" value="latlon" checked="checked"/> \
-              Latitude / Longitude fields</label> \
+              經度、緯度欄位</label> \
             <label class="radio"> \
               <input type="radio" id="editor-field-type-geom" name="editor-field-type" value="geom" /> \
-              GeoJSON field</label> \
+              GeoJSON 欄位</label> \
         </div> \
         <div class="editor-field-type-latlon"> \
-          <label>Latitude field</label> \
+          <label>緯度</label> \
           <div class="input editor-lat-field"> \
             <select> \
             <option value=""></option> \
@@ -3682,7 +3680,7 @@ my.MapMenu = Backbone.View.extend({
             {{/fields}} \
             </select> \
           </div> \
-          <label>Longitude field</label> \
+          <label>經度</label> \
           <div class="input editor-lon-field"> \
             <select> \
             <option value=""></option> \
@@ -3693,7 +3691,7 @@ my.MapMenu = Backbone.View.extend({
           </div> \
         </div> \
         <div class="editor-field-type-geom" style="display:none"> \
-          <label>Geometry field (GeoJSON)</label> \
+          <label>幾何座標欄位 (GeoJSON)</label> \
           <div class="input editor-geom-field"> \
             <select> \
             <option value=""></option> \
@@ -3705,15 +3703,15 @@ my.MapMenu = Backbone.View.extend({
         </div> \
       </div> \
       <div class="editor-buttons"> \
-        <button class="btn editor-update-map">Update</button> \
+        <button class="btn editor-update-map">更新</button> \
       </div> \
       <div class="editor-options" > \
         <label class="checkbox"> \
           <input type="checkbox" id="editor-auto-zoom" value="autozoom" checked="checked" /> \
-          Auto zoom to features</label> \
+          自動對焦</label> \
         <label class="checkbox"> \
           <input type="checkbox" id="editor-cluster" value="cluster"/> \
-          Cluster markers</label> \
+          群集標記</label> \
       </div> \
       <input type="hidden" class="editor-id" value="map-1" /> \
     </form> \
@@ -3940,7 +3938,7 @@ my.MultiView = Backbone.View.extend({
       <div class="navigation"> \
         <div class="btn-group" data-toggle="buttons-radio"> \
         {{#views}} \
-        <a href="#{{id}}" data-view="{{id}}" class="btn">{{label}}</a> \
+        <a href="#{{id}}" data-view="{{id}}" class="geogroup btn" title="{{tips}}" >{{label}}</a> \
         {{/views}} \
         </div> \
       </div> \
@@ -4076,6 +4074,8 @@ my.MultiView = Backbone.View.extend({
       .fail(function(error) {
         self.notify({message: error.message, category: 'error', persist: true});
       });
+	
+	$('.geogroup').tooltip({placement: 'right'});
   },
 
   setReadOnly: function() {
@@ -4269,7 +4269,7 @@ my.MultiView = Backbone.View.extend({
         </div>';
     } else {
       _template = ' \
-        <div class="alert alert-{{category}} fade in" data-alert="alert"><a class="close" data-dismiss="alert" href="#">×</a> \
+        <div class="alert alert-{{category}} fade in" data-alert="alert"><a class="close" data-dismiss="alert" href="#">?</a> \
           {{message}} \
         </div>';
     }
@@ -5272,23 +5272,23 @@ my.FilterEditor = Backbone.View.extend({
   className: 'recline-filter-editor well', 
   template: ' \
     <div class="filters"> \
-      <h3>Filters</h3> \
-      <a href="#" class="js-add-filter">Add filter</a> \
+      <h3>篩選</h3> \
+      <a href="#" class="js-add-filter">新增篩選欄位</a> \
       <form class="form-stacked js-add" style="display: none;"> \
         <fieldset> \
-          <label>Field</label> \
+          <label>欄位</label> \
           <select class="fields"> \
             {{#fields}} \
             <option value="{{id}}">{{label}}</option> \
             {{/fields}} \
           </select> \
-          <label>Filter type</label> \
+          <label>篩選類型</label> \
           <select class="filterType"> \
             <option value="term">Value</option> \
             <option value="range">Range</option> \
             <option value="geo_distance">Geo distance</option> \
           </select> \
-          <button type="submit" class="btn">Add</button> \
+          <button type="submit" class="btn">新增</button> \
         </fieldset> \
       </form> \
       <form class="form-stacked js-edit"> \
@@ -5296,7 +5296,7 @@ my.FilterEditor = Backbone.View.extend({
           {{{filterRender}}} \
         {{/filters}} \
         {{#filters.length}} \
-        <button type="submit" class="btn">Update</button> \
+        <button type="submit" class="btn">更新</button> \
         {{/filters.length}} \
       </form> \
     </div> \
@@ -5545,17 +5545,17 @@ my.ValueFilter = Backbone.View.extend({
   className: 'recline-filter-editor well', 
   template: ' \
     <div class="filters"> \
-      <h3>Filters</h3> \
-      <button class="btn js-add-filter add-filter">Add filter</button> \
+      <h3>篩選</h3> \
+      <button class="btn js-add-filter add-filter">新增篩選欄位</button> \
       <form class="form-stacked js-add" style="display: none;"> \
         <fieldset> \
-          <label>Field</label> \
+          <label>欄位</label> \
           <select class="fields"> \
             {{#fields}} \
             <option value="{{id}}">{{label}}</option> \
             {{/fields}} \
           </select> \
-          <button type="submit" class="btn">Add</button> \
+          <button type="submit" class="btn">新增</button> \
         </fieldset> \
       </form> \
       <form class="form-stacked js-edit"> \
@@ -5563,7 +5563,7 @@ my.ValueFilter = Backbone.View.extend({
           {{{filterRender}}} \
         {{/filters}} \
         {{#filters.length}} \
-        <button type="submit" class="btn update-filter">Update</button> \
+        <button type="submit" class="btn update-filter">更新</button> \
         {{/filters.length}} \
       </form> \
     </div> \
